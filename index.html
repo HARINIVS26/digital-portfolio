@@ -8,72 +8,103 @@
             margin: 0;
             padding: 0;
             background-color: #ffccdd; /* Light pink background */
+            overflow-x: hidden;
         }
 
         header {
             background-color: #ff66a3; /* Dark pink */
             color: #fff;
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             position: relative;
         }
 
-        .header-content h1 {
-            font-size: 2.5rem;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            text-align: left;
         }
 
-        .profile-picture {
-            width: 100px;
-            height: 100px;
+        .header-content img {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            position: absolute;
-            top: 75px;
-            left: 75px;
+        }
+
+        .header-content div {
+            max-width: 500px;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
         }
 
         nav {
             background-color: #d14786;
             color: #fff;
             text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: none;
+            transition: 0.3s;
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #fff;
+            font-weight: bold;
         }
 
         .section-content {
             background-color: #fff;
             padding: 2rem;
-            margin: 1rem;
+            margin: 2rem auto;
             border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             text-align: justify;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .download-button {
             background-color: #d14786;
             color: #fff;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
             border-radius: 20px;
             display: inline-block;
             margin-top: 10px;
+            transition: 0.3s;
         }
 
         .download-button:hover {
             background-color: #ff66a3;
+            transform: scale(1.05);
         }
 
         footer {
@@ -81,24 +112,22 @@
             padding: 1rem 0;
             background-color: #d14786;
             color: #fff;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+            margin-top: 3rem;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <img src="C:\Users\harini\Pictures\WhatsApp Image 2024-12-24 at 21.04.22_03c32dcf.jpg" alt="Harini VS" class="profile-picture">
-            <h1>Harini VS</h1>
-            <p>Aspiring UI/UX Designer</p>
+            <img src="C:\Users\harini\Documents\profilephoto.jpg" alt="Harini VS">
+            <div>
+                <h1>Harini VS</h1>
+                <p>Aspiring UI/UX Designer passionate about crafting intuitive digital experiences.</p>
+            </div>
         </div>
     </header>
 
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
@@ -108,51 +137,41 @@
         </ul>
     </nav>
 
-    <section id="about">
-        <div class="section-content">
-            <h2>About Me</h2>
-            <p>I'm a UI/UX designer in the making with a passion for creating intuitive and visually appealing digital experiences. My goal is to design interfaces that are both functional and aesthetically pleasing , ensuring a seamless user journey. I love blending  creativity with problem-solving  to enhance user engagement.</p>
-        </div>
+    <section id="about" class="section-content">
+        <h2>About Me</h2>
+        <p>I’m a UI/UX designer in the making with a passion for designing seamless, aesthetically pleasing interfaces that enhance user experience.</p>
     </section>
 
-    <section id="education">
-        <div class="section-content">
-            <h2>Education</h2>
-            <p><b>Bachelor of Computer Applications (BCA)</b><br>Current Student</p>
-        </div>
+    <section id="education" class="section-content">
+        <h2>Education</h2>
+        <p><b>Bachelor of Computer Applications (BCA)</b><br>Current Student</p>
     </section>
 
-    <section id="skills">
-        <div class="section-content">
-            <h2>Skills</h2>
-            <ul>
-                <li>UI/UX Design</li>
-                <li>Figma & Prototyping</li>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Python</li>
-                <li>Adobe Creative Suite</li>
-                <li>Design Thinking</li>
-            </ul>
-        </div>
+    <section id="skills" class="section-content">
+        <h2>Skills</h2>
+        <ul>
+            <li>UI/UX Design</li>
+            <li>Figma & Prototyping</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python</li>
+            <li>Adobe Creative Suite</li>
+            <li>Design Thinking</li>
+        </ul>
     </section>
 
-    <section id="projects">
-        <div class="section-content">
-            <h2>Projects</h2>
-            <ul>
-                <li><a href="https://www.behance.net/gallery/215405265/Shopeasy-uiux-case-study">ShopEasy - Aesthetic Fashion Finder</a></li>
-                <li><a href="C:\Users\harini\Documents\to do list\index.html">To do list app using html and css</a></li>
-            </ul>
-        </div>
+    <section id="projects" class="section-content">
+        <h2>Projects</h2>
+        <ul>
+            <li><a href="https://www.behance.net/gallery/215405265/Shopeasy-uiux-case-study">ShopEasy - Aesthetic Fashion Finder</a></li>
+            <li><a href="C:\Users\harini\Documents\to do list\todolist.html">To-do List App</a></li>
+        </ul>
     </section>
 
-    <section id="resume">
-        <div class="section-content">
-            <center>
-                <h2>Resume</h2>
-                <a href="C:\Users\harini\Downloads\harini v s resume.pdf" target="_blank" class="download-button">Download CV</a>
-            </center>
-        </div>
+    <section id="resume" class="section-content">
+        <center>
+            <h2>Resume</h2>
+            <a href="C:\Users\harini\Documents\resume.pdf" target="_blank" class="download-button">Download CV</a>
+        </center>
     </section>
 
     <footer>
@@ -160,18 +179,13 @@
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 150) {
+                navbar.style.display = 'block';
+            } else {
+                navbar.style.display = 'none';
+            }
         });
     </script>
 </body>
